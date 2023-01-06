@@ -1,12 +1,6 @@
 obj-m += realdriver.o
 
-ifdef ARCH
-  #You can update your Beaglebone path here.
-  KDIR = /home/besquare/bbg/tmp/lib/modules/5.10.65/build
-else
-  KDIR = /lib/modules/$(shell uname -r)/build
-endif
-
+KDIR = /lib/modules/$(shell uname -r)/build
 
 all:
 	make -C $(KDIR)  M=$(shell pwd) modules
